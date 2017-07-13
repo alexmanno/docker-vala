@@ -6,4 +6,10 @@ RUN mkdir /opt/project
 
 WORKDIR /opt/project
 
+RUN apt-get install -y libgtk-3-dev
+
+RUN useradd -ms /bin/bash fpm
+RUN usermod -aG fpm fpm
+USER fpm
+
 ENTRYPOINT ["valac"]
